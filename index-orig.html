@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        <link rel="shortcut icon" href="http://www.ihollaback.org/wp-content/themes/hollaback_WP/images/favicon.ico">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <div class="header"></div>
+
+        <!-- Add your site or application content here -->
+        <div id="comicbook">
+            <div class="hard"> Turn.js </div>
+            <div class="hard"></div>
+            <div class="page" style="background-image:url(img/01.jpg);">
+                <button onclick="jumpToPage(14)">Try this adventure</button>
+                <button onclick="jumpToPage(18)">Or this one!</button>
+            </div>
+            <div class="page"> Page 1 </div>
+            <div class="page pickown"> Page 2 </div>
+            <div class="page"> Page 3 </div>
+            <div class="page"> Page 4 </div>
+            <div class="page"> 
+                Comments page
+            </div>
+            <div class="hard"></div>
+            <div class="hard"></div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/turn.js"></script>
+
+        <script type="text/javascript">
+
+            // initialize comic book
+            $("#comicbook").turn({
+                width: 800,
+                height: 500,
+                autoCenter: true
+            });
+
+            // except put this inside turn.js or use one if they have it
+            function jumpToPage(pageNumber) {
+                alert("You've landed on page " + pageNumber);
+            };
+
+            // left/right keyboard shortcuts to turn page
+            $(window).bind('keydown', function(e){
+                if (e.target && e.target.tagName.toLowerCase()!='input')
+                    if (e.keyCode==37)
+                        $('#comicbook').turn('previous');
+                    else if (e.keyCode==39)
+                        $('#comicbook').turn('next');
+            });
+        </script>
+
+
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,126 @@
+
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comics | iHollaback.org</title>
+
+    
+    <meta name="description" content="Documentation and reference library for ZURB Foundation. JavaScript, CSS, components, grid and more." />
+    
+    <meta name="author" content="ZURB, inc. ZURB network also includes zurb.com" />
+    <meta name="copyright" content="ZURB, inc. Copyright (c) 2013" />
+
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/modernizr.js"></script>
+  </head>
+  <body>
+    
+  <div class="header"></div>
+
+  <div class="row nav">
+    <div class="large-3 columns">
+      <a href="index.html" class="button">Home</a>
+<!--       <h1><img src="http://placehold.it/400x100&text=Logo" /></h1> -->
+    </div>
+    <div class="large-9 columns">
+      <ul class="right button-group">
+      <!-- <li><a href="#" class="button">Link 1</a></li>
+      <li><a href="#" class="button">Link 2</a></li>
+      <li><a href="#" class="button">Link 3</a></li> -->
+      <li><a href="http://www.ihollaback.org/" class="button">Hollaback.org</a></li>
+      </ul>
+    </div>
+  </div>
+  
+<!-- End Header and Nav -->
+
+<!-- First Band (Slider) -->
+
+  <div class="row">
+    <div class="large-12 columns comic">
+    
+    <!-- Comic Book -->
+
+    <div id="comicbook">
+            <div class="hard" style="background-image:url(images/covers/red_cover.jpg);"></div>
+            <div class="hard"></div>
+            <div  class="page" style="background-image:url(images/pages/001.jpg);"></div>
+            <div class="page" style="background-image:url(images/pages/004.jpg);"></div>
+            <div class="page pickown" style="background-image:url(images/pages/005.jpg);">
+              <button onclick="jumpToPage(14)">Try this adventure</button>
+              <button onclick="jumpToPage(18)">Or this one!</button>
+            </div>
+            <div class="page" style="background-image:url(images/pages/008.jpg);"></div>
+            <div class="page" style="background-image:url(images/pages/009.jpg);"></div>
+            <div class="page"> 
+                Comments page
+            </div>
+            <div class="hard"></div>
+            <div class="hard"></div>
+        </div>
+
+    <!-- Comments -->
+
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+  </footer>
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/turn.js"></script>
+    <script>
+      $(document).foundation();
+
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+
+      // initialize comic book
+            $("#comicbook").turn({
+                width: 1000,
+                height: 600,
+                autoCenter: true
+            });
+
+            // except put this inside turn.js or use one if they have it
+            function jumpToPage(pageNumber) {
+                alert("You've landed on page " + pageNumber);
+            };
+
+            // left/right keyboard shortcuts to turn page
+            $(window).bind('keydown', function(e){
+                if (e.target && e.target.tagName.toLowerCase()!='input')
+                    if (e.keyCode==37)
+                        $('#comicbook').turn('previous');
+                    else if (e.keyCode==39)
+                        $('#comicbook').turn('next');
+            });
+    </script>
+
+  </body>
+</html>
